@@ -20,10 +20,19 @@ class BaseDB:
                 item = self.get_by_id(id)
                 return item
     
-    def get_all(self):
+    def get_all(self, filter: dict=None):
+        sql_filter = ""
+        filter_values = []
+
+        if filter:
+            sql_filter = f" WHERE {' AND '.join(key + " = %s" for key in filter.keys())}"
+            filter_values = list(filter.values())
+
+        query = f"SELECT * FROM {self.table}" + sql_filter
+
         with self.db.get_connection() as conn:
             with conn.cursor(dictionary=True) as cursor:
-                cursor.execute(f"SELECT * FROM {self.table}")
+                cursor.execute(query, filter_values)
                 result = cursor.fetchall()
                 return result
             
@@ -34,10 +43,46 @@ class BaseDB:
                 result = cursor.fetchone()
                 return result
             
-    def update(data: dict):
+    def update(self, data: dict, filter:dict=None):
+        set_items = ", ".join(key + " = %s" for key in data.keys())
+        values = list(data.values())
+        sql_filter = ""
+        filter_values = []
+
+        if filter:
+            sql_filter = f" WHERE {' AND '.join(key + " = %s" for key in filter.keys())}"
+            filter_values = list(filter.values())
+
+        query = f"UPDATE {self.table} SET {set_items}" + sql_filter
+        
+        with self.db.get_connection() as conn:
+            with conn.cursor(dictionary=True) as cursor:
+                cursor.execute(query, values + filter_values)
+                conn.commit()
+                return cursor.rowcount > 0
+            
+    def count(self, filter: dict=None):
+        sql_filter = ""
+        filter_values = []
+
+        if filter:
+            sql_filter = f" WHERE {' AND '.join(key + " = %s" for key in filter.keys())}"
+            filter_values = list(filter.values())
+
+        query = f"SELECT COUNT(*) AS total FROM {self.table}" + sql_filter
+        with self.db.get_connection() as conn:
+            with conn.cursor(dictionary=True) as cursor:
+                cursor.execute(query, filter_values)
+                result = cursor.fetchone()
+                return result
 
 
-        query = "UPDATE customers SET address = 'Canyon 123' WHERE address = 'Valley 345'"
+
+
+
+
+# bdb = BaseDB(db, "agent")
+# bdb.update({"is_available": True}, {"id": 1})
 
             
 
