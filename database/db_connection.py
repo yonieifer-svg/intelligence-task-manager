@@ -36,9 +36,10 @@ class DB_connection:
                     is_active BOOL DEFAULT TRUE,
                     completed_missions INT DEFAULT 0,
                     failed_missions INT DEFAULT 0,
-                    agent_rank ENUM('junior', 'senior', 'commander')
+                    agent_rank VARCHAR(50)
                     )
                     """)
+                # cursor.execute("DROP TABLE missions")
                 cursor.execute("""
                     CREATE TABLE IF NOT EXISTS missions (
                     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -47,8 +48,8 @@ class DB_connection:
                     location VARCHAR(50),
                     difficulty INT,
                     importance INT,
-                    status ENUM('new', 'assigned', 'in_progress', 'completed', 'failed', 'cancelled') DEFAULT 'new',
-                    risk_level ENUM('low', 'medium', 'high', 'critical'),
+                    status VARCHAR(50) DEFAULT 'NEW',
+                    risk_level VARCHAR(50),
                     assigned_agent_id INT DEFAULT NULL
                     )
                 """)
@@ -57,9 +58,7 @@ db = DB_connection()
 
 
 db.create_database()
-print("db created")
 
 
 db.create_tables()
-print("tables created")
 
