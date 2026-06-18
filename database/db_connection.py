@@ -27,7 +27,6 @@ class DB_connection:
     def create_tables(self):
         with self.get_connection() as conn:
             with conn.cursor() as cursor:
-                # cursor.execute("DROP TABLE agents")
                 cursor.execute("""
                     CREATE TABLE IF NOT EXISTS agents (
                     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -39,7 +38,6 @@ class DB_connection:
                     agent_rank VARCHAR(50)
                     )
                     """)
-                # cursor.execute("DROP TABLE missions")
                 cursor.execute("""
                     CREATE TABLE IF NOT EXISTS missions (
                     id INT PRIMARY KEY AUTO_INCREMENT,
