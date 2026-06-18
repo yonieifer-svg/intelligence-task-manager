@@ -8,17 +8,21 @@ class MissionDB(BaseDB):
         super().__init__(db, table)
 
     def create_mission(self, data: dict):
-        if not 1 <= data["importance"] <= 10 or not 1 <= data["difficulty "] <= 10:
-            raise ValueError("must be between 1-10")
-        risk_level = (data["difficulty "] * 2) + data["importance"]
+
+        risk_level = (data["difficulty"] * 2) + data["importance"]
+
         if 0 <= risk_level <= 9:
-            data["risk_level "] = "LOW"
+            data["risk_level"] = "LOW"
+
         elif 10 <= risk_level <= 17:
-            data["risk_level "] = "MEDIUM"
+            data["risk_level"] = "MEDIUM"
+
         elif 18 <= risk_level <= 24:
-            data["risk_level "] = "HIGH"
+            data["risk_level"] = "HIGH"
+
         elif 25 <= risk_level:
-            data["risk_level "] = "CRITICAL"
+            data["risk_level"] = "CRITICAL"
+
         return super().create(data)
     
     def get_all_missions(self):
@@ -33,7 +37,7 @@ class MissionDB(BaseDB):
         if not agent["is_active"]:
             raise ValueError("non nactive agent")
         
-        if self.get_open_missions_by_agent(agent_id) == 3:
+        if len(self.get_open_missions_by_agent(agent_id)) >= 3:
             raise ValueError("3 missions are already open")
         
         if mission["risk_level"] == "CRITICAL" and agent["agent_rank"] != "Commander":
@@ -45,14 +49,16 @@ class MissionDB(BaseDB):
         return super().update({"assigned_agent_id": agent_id, "status": "ASSIGNED"}, {"id": mission_id})
     
     def update_mission_status(self, id, status):
+
         mission = self.get_mission_by_id(id)
+
         if status == "IN_PROGRESS" and mission["status"] != "ASSIGNED":
             raise ValueError("only ASSIGNED can be IN_PROGRESS")
         
         if (status == "FAILED" or status == "COMPLETED") and mission["status"] != "IN_PROGRESS ":
             raise ValueError("can ens only IN_PROGRESS ")
 
-        if status == "CANCELLED" and (mission["status"] != "NEW" or mission["status"] != "ASSIGNED"):
+        if status == "CANCELLED" and mission["status"] not in ["NEW", "ASSIGNED"] :
             raise ValueError("can not be CANCELLED")
 
         return super().update({"status": status}, {"id": id})
@@ -82,10 +88,6 @@ class MissionDB(BaseDB):
         top_agent = max(all_agents, key=lambda x: x["completed_missions"])
         return top_agent
 
-        
-
-
-        
 
 
 
@@ -93,9 +95,7 @@ class MissionDB(BaseDB):
 
 
 
-
-
-mis = MissionDB(db, "missions")
+# mis = MissionDB(db, "missions")
 
 # print(mis.create_mission({"title": "imp", "description": "wow", "location": "here", "difficulty": 5, "importance": 7, }))
 # print(mis.get_all_missions())

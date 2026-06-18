@@ -1,4 +1,4 @@
-from db_connection import DB_connection, db
+from database.db_connection import DB_connection, db
 
 class BaseDB:
     def __init__(self, db: DB_connection, table):

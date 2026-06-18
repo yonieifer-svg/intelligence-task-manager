@@ -57,8 +57,5 @@ class DB_connection:
 db = DB_connection()
 
 
-db.create_database()
 
-
-db.create_tables()
 
