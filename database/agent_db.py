@@ -26,6 +26,12 @@ class AgentDB(BaseDB):
         current = agent["completed_missions"]
         return super().update({"completed_missions": current + 1}, {"id": id})
 
+    def increment_failed(self, id):
+        agent = self.get_agent_by_id(id)
+        current = agent["failed_missions"]
+        return super().update({"failed_missions": current + 1}, {"id": id})
+
+
     def get_agent_performance(self, id):
         agent = self.get_agent_by_id(id)
         completed = agent["completed_missions"]

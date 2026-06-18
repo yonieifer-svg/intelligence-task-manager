@@ -1,6 +1,6 @@
-from db_connection import DB_connection, db
-from agent_db import agents
-from base_db import BaseDB
+from database.db_connection import DB_connection, db
+from routes.agents_routes import agents
+from database.base_db import BaseDB
 
 
 class MissionDB(BaseDB):
@@ -32,35 +32,9 @@ class MissionDB(BaseDB):
         return super().get_by_id(id)
     
     def assign_mission(self, mission_id, agent_id):
-        agent = agents.get_agent_by_id(agent_id)
-        mission = self.get_mission_by_id(mission_id)
-        if not agent["is_active"]:
-            raise ValueError("non nactive agent")
-        
-        if len(self.get_open_missions_by_agent(agent_id)) >= 3:
-            raise ValueError("3 missions are already open")
-        
-        if mission["risk_level"] == "CRITICAL" and agent["agent_rank"] != "Commander":
-            raise ValueError("only Commander can take CRITICAL")
-
-        if mission["status"] != "NEW":
-            raise ValueError("not NEW mission")
-
         return super().update({"assigned_agent_id": agent_id, "status": "ASSIGNED"}, {"id": mission_id})
     
     def update_mission_status(self, id, status):
-
-        mission = self.get_mission_by_id(id)
-
-        if status == "IN_PROGRESS" and mission["status"] != "ASSIGNED":
-            raise ValueError("only ASSIGNED can be IN_PROGRESS")
-        
-        if (status == "FAILED" or status == "COMPLETED") and mission["status"] != "IN_PROGRESS ":
-            raise ValueError("can ens only IN_PROGRESS ")
-
-        if status == "CANCELLED" and mission["status"] not in ["NEW", "ASSIGNED"] :
-            raise ValueError("can not be CANCELLED")
-
         return super().update({"status": status}, {"id": id})
     
     def get_open_missions_by_agent(self, id):
