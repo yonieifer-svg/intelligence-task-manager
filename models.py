@@ -5,7 +5,7 @@ from typing import Literal
 class Agent(BaseModel):
     name: str = Field(max_length=50)
     specialty: str = Field(max_length=50)
-    agent_rank: Literal["Junior", "Senior", "Commander"]
+    agent_rank: str = Field(max_length=50)
 
 
 class Mission(BaseModel):

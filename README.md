@@ -1,15 +1,22 @@
 An intelligence unit called ShadowNet needs a system to manage agents and tasks. The system is built on a FastAPI server and manages a
-database for the ongoing management of agents and tasks
+database for the ongoing management of agents and missions
 
 ========================================================================================================================================
 
 - Folder structure -
 
 intelligence-task-manager/
+├── main.py
 ├── database/
 │   ├── db_connection.py
 │   ├── agent_db.py
 │   └── mission_db.py
+├── routes/
+│ ├── agent_routes.py
+│ ├── mission_routes.py
+│ └── report_routes.py
+├── logs/
+│ └── app.log
 ├── README.md
 ├── requirements.txt
 └── .gitignore
@@ -106,11 +113,47 @@ risk_level מחושב אוטומטית בעת יצירת משימה — המשת
 ניתן לבטל רק משימה בסטטוס NEW או ASSIGNED — אחרת שגיאה.
 
 ========================================================================================================================================
+Agents: 
+
+[POST] /agents - יצירת סוכן חדש 
+[GET] /agents - כל הסוכנים 
+[GET] /agents/{id} ID לפי סוכן
+[PUT] /agents/{id} סוכן עדכון
+[PUT] /agents/{id}/deactivate סוכן השבתת
+[GET] /agents/{id}/performance סוכן ביצועי
+
+
+
+Missions: 
+
+[POST] /missions - יצירת משימה
+[GET] /missions - כל המשימות 
+[GET] /missions/{id} ID לפי משימה
+[PUT] /missions/{id}/assign/{agent_id} - שיוך לסוכן
+[PUT] /missions/{id}/start - התחלת משימה
+[PUT] /missions/{id}/complete - סיום בהצלחה
+[PUT] /missions/{id}/fail - סיום בכישלון
+[PUT] /missions/{id}/cancel - ביטול משימה
+
+
+
+Reports: 
+
+[GET] /reports/summary - דוח כללי של המערכת 
+[GET] /reports/missions-by-status - סטטוס לפי משימות
+[GET] /reports/top-agent - הסוכן המצטיין
+
+
+
+
+========================================================================================================================================
 
 - Running instructions -
 
 $ docker run -d --name intelligence-mysql -e MYSQL_ROOT_PASSWORD=root \
   -e MYSQL_DATABASE=Intelligence_db -p 3306:3306 mysql:8.0
+
+uvicorn main:app --reload
 
 
 

@@ -1,4 +1,4 @@
-from database.db_connection import DB_connection, db
+from database.db_connection import DB_connection
 from routes.agents_routes import agents
 from database.base_db import BaseDB
 
@@ -55,7 +55,7 @@ class MissionDB(BaseDB):
         return new + assigned + in_progress
     
     def count_critical_missions(self):
-        return super().count({"status": "CRITICAL"})["total"]
+        return super().count({"risk_level": "CRITICAL"})["total"]
     
     def get_top_agent(self):
         all_agents = agents.get_all_agents()
@@ -69,17 +69,5 @@ class MissionDB(BaseDB):
 
 
 
-# mis = MissionDB(db, "missions")
-
-# print(mis.create_mission({"title": "imp", "description": "wow", "location": "here", "difficulty": 5, "importance": 7, }))
-# print(mis.get_all_missions())
-# mis.assign_mission(1, 1)
-# print(mis.get_mission_by_id(1))
-# print(mis.get_all_missions())
-# print(mis.get_open_missions_by_agent(1))
-
-# print(mis.count_all_missions())
-# print(mis.count_by_status("ASSIGNED"))
-# print(mis.count_open_missions())
 
 
