@@ -20,10 +20,10 @@ def create_agent(data: Agent):
             raise HTTPException(400, "rank must be Junior / Senior / Commander")
     
     logger.info("creating agent")
-    agents.create_agent(data.model_dump())
+    new_id = agents.create_agent(data.model_dump())
 
-    logger.info("Agent Created")
-    return {"message": "Agent Created"}
+    logger.info(f"Agent {new_id} Created")
+    return {"message": f"Agent {new_id} Created"}
 
 @router.get("")
 def get_all_agents():
@@ -47,9 +47,14 @@ def get_agent_by_id(id: int):
 def update_agent(id: int, data: Agent):
     logger.info(f"PUT /agents/{id} called")
 
+    if data.agent_rank not in ["Junior", "Senior", "Commander"]:
+            logger.error("Incorrect rank")
+            raise HTTPException(400, "rank must be Junior / Senior / Commander")
+
     get_agent_by_id(id)
     logger.info("Updating agent")
     is_updated = agents.update_agent(id, data.model_dump())
+
     if is_updated:
         logger.info("Updated successfully")
         return {"message": "Updated successfully"}

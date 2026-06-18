@@ -1,0 +1,245 @@
+2026-06-18 15:55:59,965 | INFO | PUT /agents/44 called
+2026-06-18 15:55:59,966 | INFO | Looking for agent 44
+2026-06-18 15:55:59,997 | ERROR | id 44 not exists
+2026-06-18 15:56:52,209 | INFO | POST /agents called
+2026-06-18 15:56:52,209 | INFO | creating agent
+2026-06-18 15:56:52,356 | INFO | Agent Created
+2026-06-18 16:00:09,888 | INFO | POST /agents called
+2026-06-18 16:00:09,888 | INFO | creating agent
+2026-06-18 16:00:09,984 | INFO | Agent 5 Created
+2026-06-18 16:00:54,337 | INFO | PUT /agents/4 called
+2026-06-18 16:00:54,337 | INFO | Looking for agent 4
+2026-06-18 16:00:54,374 | INFO | returns agent 4
+2026-06-18 16:00:54,374 | INFO | Updating agent
+2026-06-18 16:00:54,435 | INFO | Updated successfully
+2026-06-18 16:01:13,149 | INFO | Looking for agent 2
+2026-06-18 16:01:13,193 | INFO | returns agent 2
+2026-06-18 16:01:18,357 | INFO | Looking for agent 4
+2026-06-18 16:01:18,396 | INFO | returns agent 4
+2026-06-18 16:01:27,656 | INFO | Looking for agent 44
+2026-06-18 16:01:27,689 | ERROR | id 44 not exists
+2026-06-18 16:01:41,439 | INFO | GET /agents called
+2026-06-18 16:01:41,439 | INFO | returns all agents
+2026-06-18 16:01:53,548 | INFO | GET /missions called
+2026-06-18 16:01:53,548 | INFO | returns all missions
+2026-06-18 16:02:57,980 | INFO | POST /missions called
+2026-06-18 16:02:57,981 | INFO | creating mission
+2026-06-18 16:02:58,071 | INFO | mission Created
+2026-06-18 16:03:03,128 | INFO | GET /missions called
+2026-06-18 16:03:03,129 | INFO | returns all missions
+2026-06-18 16:04:38,719 | INFO | GET /missions called
+2026-06-18 16:04:38,720 | INFO | returns all missions
+2026-06-18 16:05:18,812 | INFO | POST /missions called
+2026-06-18 16:05:18,813 | INFO | creating mission
+2026-06-18 16:05:18,940 | INFO | Mission 4 Created
+2026-06-18 16:05:30,861 | INFO | Looking for agent 50
+2026-06-18 16:05:30,895 | ERROR | mission not exists
+2026-06-18 16:05:39,275 | INFO | Looking for agent 4
+2026-06-18 16:05:39,308 | INFO | returns mission 4
+2026-06-18 16:06:44,743 | INFO | Looking for agent 44
+2026-06-18 16:06:44,774 | ERROR | mission 44 not exists
+2026-06-18 16:06:52,041 | INFO | GET /agents called
+2026-06-18 16:06:52,041 | INFO | returns all agents
+2026-06-18 16:07:17,656 | INFO | PUT /missions/1/assign/1 called
+2026-06-18 16:07:17,657 | INFO | Looking for agent 1
+2026-06-18 16:07:17,689 | INFO | returns mission 1
+2026-06-18 16:07:17,689 | INFO | Looking for agent 1
+2026-06-18 16:07:17,720 | INFO | returns agent 1
+2026-06-18 16:07:17,720 | ERROR | not NEW mission
+2026-06-18 16:07:36,747 | INFO | PUT /missions/2/assign/1 called
+2026-06-18 16:07:36,748 | INFO | Looking for agent 2
+2026-06-18 16:07:36,781 | INFO | returns mission 2
+2026-06-18 16:07:36,781 | INFO | Looking for agent 1
+2026-06-18 16:07:36,808 | INFO | returns agent 1
+2026-06-18 16:07:36,809 | ERROR | not NEW mission
+2026-06-18 16:07:40,768 | INFO | PUT /missions/3/assign/1 called
+2026-06-18 16:07:40,768 | INFO | Looking for agent 3
+2026-06-18 16:07:40,804 | INFO | returns mission 3
+2026-06-18 16:07:40,804 | INFO | Looking for agent 1
+2026-06-18 16:07:40,832 | INFO | returns agent 1
+2026-06-18 16:07:40,832 | ERROR | non nactive agent
+2026-06-18 16:07:51,843 | INFO | PUT /missions/3/assign/2 called
+2026-06-18 16:07:51,844 | INFO | Looking for agent 3
+2026-06-18 16:07:51,882 | INFO | returns mission 3
+2026-06-18 16:07:51,883 | INFO | Looking for agent 2
+2026-06-18 16:07:51,911 | INFO | returns agent 2
+2026-06-18 16:07:51,981 | ERROR | only Commander can take CRITICAL
+2026-06-18 16:07:58,808 | INFO | PUT /missions/3/assign/4 called
+2026-06-18 16:07:58,808 | INFO | Looking for agent 3
+2026-06-18 16:07:58,846 | INFO | returns mission 3
+2026-06-18 16:07:58,846 | INFO | Looking for agent 4
+2026-06-18 16:07:58,874 | INFO | returns agent 4
+2026-06-18 16:07:58,937 | INFO | Updating
+2026-06-18 16:07:59,026 | INFO | Updated successfully
+2026-06-18 16:08:09,373 | INFO | PUT /missions/3/start called
+2026-06-18 16:08:09,373 | INFO | Looking for agent 3
+2026-06-18 16:08:09,407 | INFO | returns mission 3
+2026-06-18 16:08:09,407 | INFO | Updating
+2026-06-18 16:08:09,497 | INFO | Updated successfully
+2026-06-18 16:08:19,624 | INFO | Looking for agent 3
+2026-06-18 16:08:19,663 | INFO | returns mission 3
+2026-06-18 16:08:32,691 | INFO | PUT /missions/3/cancel called
+2026-06-18 16:08:32,691 | INFO | Looking for agent 3
+2026-06-18 16:08:32,733 | INFO | returns mission 3
+2026-06-18 16:08:32,733 | ERROR | can not be CANCELLED
+2026-06-18 16:08:44,627 | INFO | PUT /missions/3/complete called
+2026-06-18 16:08:44,628 | INFO | Looking for agent 3
+2026-06-18 16:08:44,664 | INFO | returns mission 3
+2026-06-18 16:08:44,665 | INFO | Updating
+2026-06-18 16:08:44,920 | INFO | Updated successfully
+2026-06-18 16:08:52,431 | INFO | GET /missions called
+2026-06-18 16:08:52,431 | INFO | returns all missions
+2026-06-18 16:09:32,128 | INFO | POST /missions called
+2026-06-18 16:09:32,129 | INFO | creating mission
+2026-06-18 16:09:32,227 | INFO | Mission 5 Created
+2026-06-18 16:09:32,979 | INFO | POST /missions called
+2026-06-18 16:09:32,979 | INFO | creating mission
+2026-06-18 16:09:33,036 | INFO | Mission 6 Created
+2026-06-18 16:09:33,311 | INFO | POST /missions called
+2026-06-18 16:09:33,311 | INFO | creating mission
+2026-06-18 16:09:33,435 | INFO | Mission 7 Created
+2026-06-18 16:09:38,610 | INFO | GET /missions called
+2026-06-18 16:09:38,611 | INFO | returns all missions
+2026-06-18 16:10:04,164 | INFO | PUT /missions/5/assign/4 called
+2026-06-18 16:10:04,165 | INFO | Looking for agent 5
+2026-06-18 16:10:04,215 | INFO | returns mission 5
+2026-06-18 16:10:04,215 | INFO | Looking for agent 4
+2026-06-18 16:10:04,249 | INFO | returns agent 4
+2026-06-18 16:10:04,312 | INFO | Updating
+2026-06-18 16:10:04,381 | INFO | Updated successfully
+2026-06-18 16:10:08,996 | INFO | PUT /missions/6/assign/4 called
+2026-06-18 16:10:08,996 | INFO | Looking for agent 6
+2026-06-18 16:10:09,026 | INFO | returns mission 6
+2026-06-18 16:10:09,027 | INFO | Looking for agent 4
+2026-06-18 16:10:09,055 | INFO | returns agent 4
+2026-06-18 16:10:09,117 | INFO | Updating
+2026-06-18 16:10:09,246 | INFO | Updated successfully
+2026-06-18 16:10:14,172 | INFO | PUT /missions/7/assign/4 called
+2026-06-18 16:10:14,172 | INFO | Looking for agent 7
+2026-06-18 16:10:14,207 | INFO | returns mission 7
+2026-06-18 16:10:14,207 | INFO | Looking for agent 4
+2026-06-18 16:10:14,235 | INFO | returns agent 4
+2026-06-18 16:10:14,296 | INFO | Updating
+2026-06-18 16:10:14,391 | INFO | Updated successfully
+2026-06-18 16:10:19,575 | INFO | PUT /missions/8/assign/4 called
+2026-06-18 16:10:19,575 | INFO | Looking for agent 8
+2026-06-18 16:10:19,611 | ERROR | mission 8 not exists
+2026-06-18 16:11:49,226 | INFO | GET /missions called
+2026-06-18 16:11:49,227 | INFO | returns all missions
+2026-06-18 16:13:16,087 | INFO | POST /missions called
+2026-06-18 16:13:16,088 | INFO | creating mission
+2026-06-18 16:13:16,152 | INFO | Mission 8 Created
+2026-06-18 16:13:22,558 | INFO | PUT /missions/8/assign/4 called
+2026-06-18 16:13:22,558 | INFO | Looking for agent 8
+2026-06-18 16:13:22,592 | INFO | returns mission 8
+2026-06-18 16:13:22,592 | INFO | Looking for agent 4
+2026-06-18 16:13:22,621 | INFO | returns agent 4
+2026-06-18 16:13:22,681 | ERROR | 3 missions are already open
+2026-06-18 16:13:36,791 | INFO | PUT /missions/8/cancel called
+2026-06-18 16:13:36,791 | INFO | Looking for agent 8
+2026-06-18 16:13:36,832 | INFO | returns mission 8
+2026-06-18 16:13:36,832 | INFO | Updating
+2026-06-18 16:13:36,914 | INFO | Updated successfully
+2026-06-18 16:13:49,550 | INFO | PUT /missions/7/start called
+2026-06-18 16:13:49,551 | INFO | Looking for agent 7
+2026-06-18 16:13:49,585 | INFO | returns mission 7
+2026-06-18 16:13:49,585 | INFO | Updating
+2026-06-18 16:13:49,699 | INFO | Updated successfully
+2026-06-18 16:13:58,237 | INFO | PUT /missions/7/complete called
+2026-06-18 16:13:58,237 | INFO | Looking for agent 7
+2026-06-18 16:13:58,272 | INFO | returns mission 7
+2026-06-18 16:13:58,272 | INFO | Updating
+2026-06-18 16:13:58,515 | INFO | Updated successfully
+2026-06-18 16:14:09,108 | INFO | GET /reports/top-agent called
+2026-06-18 16:14:09,144 | INFO | returns top agent
+2026-06-18 16:14:18,676 | INFO | GET /reports/summary called
+2026-06-18 16:14:18,677 | INFO | returns summary
+2026-06-18 16:15:10,826 | INFO | GET /reports/summary called
+2026-06-18 16:15:10,827 | INFO | returns summary
+2026-06-18 16:16:46,074 | INFO | GET /reports/missions-by-status called
+2026-06-18 16:16:46,077 | INFO | returns missions-by-status
+2026-06-18 16:21:02,620 | INFO | POST /agents called
+2026-06-18 16:21:02,621 | ERROR | Incorrect rank
+2026-06-18 16:22:24,270 | INFO | GET /agents called
+2026-06-18 16:22:24,271 | INFO | returns all agents
+2026-06-18 16:22:42,466 | INFO | Looking for agent 4
+2026-06-18 16:22:42,505 | INFO | returns agent 4
+2026-06-18 16:23:08,169 | INFO | PUT /agents/2 called
+2026-06-18 16:23:08,169 | INFO | Looking for agent 2
+2026-06-18 16:23:08,205 | INFO | returns agent 2
+2026-06-18 16:23:08,206 | INFO | Updating agent
+2026-06-18 16:23:08,302 | INFO | Updated successfully
+2026-06-18 16:23:22,585 | INFO | GET /agents called
+2026-06-18 16:23:22,585 | INFO | returns all agents
+2026-06-18 16:25:31,702 | INFO | PUT /agents/2 called
+2026-06-18 16:25:31,702 | ERROR | Incorrect rank
+2026-06-18 16:25:42,843 | INFO | PUT /agents/2 called
+2026-06-18 16:25:42,843 | INFO | Looking for agent 2
+2026-06-18 16:25:42,883 | INFO | returns agent 2
+2026-06-18 16:25:42,883 | INFO | Updating agent
+2026-06-18 16:25:43,021 | INFO | Updated successfully
+2026-06-18 16:25:49,363 | INFO | PUT /agents/2 called
+2026-06-18 16:25:49,363 | ERROR | Incorrect rank
+2026-06-18 16:25:57,545 | INFO | GET /agents called
+2026-06-18 16:25:57,546 | INFO | returns all agents
+2026-06-18 16:26:18,077 | INFO | PUT /agents/2 called
+2026-06-18 16:26:18,077 | ERROR | Incorrect rank
+2026-06-18 16:27:26,683 | INFO | POST /missions called
+2026-06-18 16:27:26,683 | ERROR | importance between 1 and 10
+2026-06-18 16:27:35,794 | INFO | POST /missions called
+2026-06-18 16:27:35,794 | INFO | creating mission
+2026-06-18 16:27:35,938 | INFO | Mission 9 Created
+2026-06-18 16:27:46,141 | INFO | Looking for agent 9
+2026-06-18 16:27:46,176 | INFO | returns mission 9
+2026-06-18 16:28:01,570 | INFO | GET /missions called
+2026-06-18 16:28:01,571 | INFO | returns all missions
+2026-06-18 16:28:37,516 | INFO | GET /agents called
+2026-06-18 16:28:37,516 | INFO | returns all agents
+2026-06-18 16:29:14,958 | INFO | GET /missions called
+2026-06-18 16:29:14,960 | INFO | returns all missions
+2026-06-18 16:29:37,549 | INFO | PUT /missions/4/assign/1 called
+2026-06-18 16:29:37,550 | INFO | Looking for agent 4
+2026-06-18 16:29:37,597 | INFO | returns mission 4
+2026-06-18 16:29:37,598 | INFO | Looking for agent 1
+2026-06-18 16:29:37,628 | INFO | returns agent 1
+2026-06-18 16:29:37,628 | ERROR | non nactive agent
+2026-06-18 16:29:42,730 | INFO | PUT /missions/4/assign/2 called
+2026-06-18 16:29:42,730 | INFO | Looking for agent 4
+2026-06-18 16:29:42,772 | INFO | returns mission 4
+2026-06-18 16:29:42,772 | INFO | Looking for agent 2
+2026-06-18 16:29:42,801 | INFO | returns agent 2
+2026-06-18 16:29:42,861 | ERROR | only Commander can take CRITICAL
+2026-06-18 16:29:47,382 | INFO | PUT /missions/4/assign/4 called
+2026-06-18 16:29:47,382 | INFO | Looking for agent 4
+2026-06-18 16:29:47,414 | INFO | returns mission 4
+2026-06-18 16:29:47,414 | INFO | Looking for agent 4
+2026-06-18 16:29:47,444 | INFO | returns agent 4
+2026-06-18 16:29:47,508 | INFO | Updating
+2026-06-18 16:29:47,593 | INFO | Updated successfully
+2026-06-18 16:29:53,377 | INFO | PUT /missions/4/assign/5 called
+2026-06-18 16:29:53,378 | INFO | Looking for agent 4
+2026-06-18 16:29:53,410 | INFO | returns mission 4
+2026-06-18 16:29:53,410 | INFO | Looking for agent 5
+2026-06-18 16:29:53,440 | INFO | returns agent 5
+2026-06-18 16:29:53,440 | ERROR | not NEW mission
+2026-06-18 16:30:09,258 | INFO | PUT /missions/8/assign/5 called
+2026-06-18 16:30:09,258 | INFO | Looking for agent 8
+2026-06-18 16:30:09,312 | INFO | returns mission 8
+2026-06-18 16:30:09,313 | INFO | Looking for agent 5
+2026-06-18 16:30:09,348 | INFO | returns agent 5
+2026-06-18 16:30:09,349 | ERROR | not NEW mission
+2026-06-18 16:31:14,369 | INFO | PUT /missions/9/assign/5 called
+2026-06-18 16:31:14,369 | INFO | Looking for agent 9
+2026-06-18 16:31:14,414 | INFO | returns mission 9
+2026-06-18 16:31:14,414 | INFO | Looking for agent 5
+2026-06-18 16:31:14,442 | INFO | returns agent 5
+2026-06-18 16:31:14,509 | INFO | Updating
+2026-06-18 16:31:14,604 | INFO | Updated successfully
+2026-06-18 16:31:30,261 | INFO | PUT /missions/8/fail called
+2026-06-18 16:31:30,261 | INFO | Looking for agent 8
+2026-06-18 16:31:30,302 | INFO | returns mission 8
+2026-06-18 16:31:30,303 | ERROR | can FAILED only IN_PROGRESS
+2026-06-18 16:31:40,606 | INFO | PUT /missions/8/start called
+2026-06-18 16:31:40,607 | INFO | Looking for agent 8
+2026-06-18 16:31:40,640 | INFO | returns mission 8
+2026-06-18 16:31:40,641 | ERROR | only ASSIGNED can be IN_PROGRESS

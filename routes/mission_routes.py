@@ -26,9 +26,9 @@ def create_mission(data: Mission):
         raise HTTPException(400, "importance between 1 and 10")
     
     logger.info("creating mission")
-    missions.create_mission(data.model_dump())
-    logger.info("mission Created")
-    return {"message": "Mission Created"}
+    new_id = missions.create_mission(data.model_dump())
+    logger.info(f"Mission {new_id} Created")
+    return {"message": f"Mission {new_id} Created"}
 
 
 @router.get("")
@@ -44,8 +44,8 @@ def get_mission_by_id(id: int):
     mission = missions.get_mission_by_id(id)
 
     if not mission:
-        logger.error("mission not exists")
-        raise HTTPException(404, "mission not exists")
+        logger.error(f"mission {id} not exists")
+        raise HTTPException(404, f"mission not {id} exists")
     
     logger.info(f"returns mission {id}")
     return mission

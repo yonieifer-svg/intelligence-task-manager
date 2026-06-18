@@ -16,9 +16,7 @@ class BaseDB:
             with conn.cursor() as cursor:
                 cursor.execute(query, values)
                 conn.commit()
-                id = cursor.lastrowid
-                item = self.get_by_id(id)
-                return item
+                return cursor.lastrowid
     
     def get_all(self, filter: dict=None):
         sql_filter = ""
@@ -77,12 +75,6 @@ class BaseDB:
                 return result
 
 
-
-
-
-
-# bdb = BaseDB(db, "agent")
-# bdb.update({"is_available": True}, {"id": 1})
 
             
 
